@@ -54,7 +54,7 @@ const AddUsers = (props) => {
   };
 
   return (
-    <div>
+    <>
       {error && (
         <ErrorModal
           clickEvent={errorHandler}
@@ -84,7 +84,7 @@ const AddUsers = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </>
   );
 };
 
