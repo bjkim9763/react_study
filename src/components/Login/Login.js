@@ -29,7 +29,7 @@ const Login = (props) => {
 
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
-  };
+  }; 
 
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes("@"));
