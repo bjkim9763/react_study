@@ -16,12 +16,12 @@ const Login = (props) => {
       setFormIsValid(
         enteredEmail.includes("@") && enteredPassword.trim().length > 6
       );
-    }, 500);
+    }, 500); //유효성 검사
 
     return () => {
       console.log("clean");
       clearTimeout(identifier);
-    };
+    }; //cleanup function
   }, [enteredEmail, enteredPassword]);
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
