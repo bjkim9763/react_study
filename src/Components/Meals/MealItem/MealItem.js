@@ -11,7 +11,7 @@ const MealItem = (props) => {
         <div className={classes.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm id={props.id} />
+        <MealItemForm id={props.id} name={props.name} price={props.price} />
         {/* 이렇게 넣어줘야 각 리스트에 반복문으로 추가됨 */}
       </div>
     </li>
