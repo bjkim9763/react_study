@@ -10,7 +10,7 @@ const Backdrop = (props) => {
 const Overlay = (props) => {
   return (
     <Card className={classes.modal}>
-      <Cart cartData={props.modalData} />
+      <div className={classes.content}>{props.children}</div>
     </Card>
   );
 };
@@ -18,11 +18,11 @@ const Modal = (props) => {
   return (
     <div>
       {ReactDOM.createPortal(
-        <Backdrop onClick={props.clickEvent} />,
+        <Backdrop onClick={props.onClick} />,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <Overlay modalData={props.modalData} />,
+        <Overlay>{props.children}</Overlay>,
         document.getElementById("overlay-root")
       )}
     </div>

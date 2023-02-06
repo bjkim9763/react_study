@@ -5,12 +5,13 @@ import classes from "./MealItemForm.module.css";
 const MealItemForm = (props) => {
   const modalDataContainer = [
     {
-      id: "m1",
+      id: "modal_" + props.id,
       name: props.name,
       amount: 1,
+      price: props.price,
     },
   ];
-  const [visible, setVisivle] = useState(false);
+
   const [modalData, setModalData] = useState(modalDataContainer);
   const inputDataHandler = (enteredData) => {
     const countData = enteredData;
@@ -18,24 +19,18 @@ const MealItemForm = (props) => {
       id: "count_" + props.id,
       name: props.name,
       amount: Number(countData),
+      price: props.price,
     };
     setModalData((prevData) => {
       return [data];
     });
   };
-  const clickEventHandler = () => {
-    setVisivle(null);
-    console.log(visible);
-  };
+
   const submitHandler = (event) => {
     event.preventDefault();
-    setVisivle(true);
   };
   return (
     <>
-      {visible && (
-        <Modal clickEvent={clickEventHandler} modalData={modalData} />
-      )}
       <form className={classes.form} onSubmit={submitHandler}>
         <Input
           inputData={inputDataHandler}
