@@ -1,7 +1,6 @@
 import classes from "./Modal.module.css";
 import Card from "./Card";
 import ReactDOM from "react-dom";
-import Cart from "../Cart/Cart.js";
 
 //무조건 포탈 사용할 것 안 그러면 Form에 갇혀서 이상하게 출력됨
 const Backdrop = (props) => {

@@ -1,8 +1,21 @@
+import { useContext } from "react";
+import CartContext from "../../store/cart-ctx";
 import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
 
 const MealItem = (props) => {
+  const ctx = useContext(CartContext);
   const price = `$${props.price}`;
+
+  const addToCartHandler = (amount) => {
+    ctx.addItem({
+      id: props.id,
+      name: props.name,
+      amount: amount,
+      price: props.price,
+    });
+  };
+
   return (
     <li className={classes.meal}>
       <div>
@@ -11,7 +24,7 @@ const MealItem = (props) => {
         <div className={classes.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm id={props.id} name={props.name} price={props.price} />
+        <MealItemForm onAddToCart={addToCartHandler} />
         {/* 이렇게 넣어줘야 각 리스트에 반복문으로 추가됨 */}
       </div>
     </li>
