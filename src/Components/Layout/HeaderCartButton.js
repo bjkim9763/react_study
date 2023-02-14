@@ -5,19 +5,18 @@ import Cart from "../Cart/Cart";
 import CartContext from "../store/cart-ctx";
 
 const HeaderCartButton = (props) => {
-  const cardCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
 
-  const numberOfCartItems = cardCtx.items.reduce((currentNumber, item) => {
+  const numberOfCartItems = cartCtx.items.reduce((currentNumber, item) => {
     return currentNumber + item.amount;
   }, 0);
 
-  const [visible, setVisivle] = useState(false);
+  const [visible, setVisible] = useState(false);
   const clickEventHandler = () => {
-    setVisivle(null);
-    console.log(visible);
+    setVisible(null);
   };
   const visibleHandler = () => {
-    setVisivle(true);
+    setVisible(true);
   };
   return (
     <>
